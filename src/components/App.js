@@ -7,6 +7,7 @@ import Login from './Login';
 import Nav from './Nav';
 import Home from './Home';
 import UserCard from './UserCard';
+import NewPoll from './NewPoll';
 
 class App extends Component {
   componentDidMount () {
