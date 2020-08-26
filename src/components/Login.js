@@ -31,9 +31,6 @@ export class Login extends Component {
             loading={this.state.loading}
           />
         </Segment.Group>
-        <footer className="footer">
-          <a href='https://vectorcharacters.net/avatars-2/flat-user-avatars-pack'>People vector created by vector characters - www.vectorcharacters.net</a>
-        </footer>
       </Fragment>
     );
   }
@@ -66,7 +63,7 @@ const LoginGridLayout = ({ image, form, loading }) => (
 );
 
 const BrandImage = () => (
-  <Image src="/images/avatars/animals.png" size="medium" centered />
+  <Image src="/images/avatars/react_logo.png" size="medium" centered />
 );
 
 class LoginForm extends Component {
