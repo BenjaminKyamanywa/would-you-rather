@@ -8,12 +8,14 @@ import Nav from './Nav';
 import Home from './Home';
 import UserCard from './UserCard';
 import NewPoll from './NewPoll';
+import Leaderboard from './Leaderboard';
+import NoMatch from './NoMatch';
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.handleInitialData();
   }
-  render () {
+  render() {
     const { authUser } = this.props;
     return (
       <Router>
@@ -43,7 +45,7 @@ class App extends Component {
           )}
         </div>
       </Router>
-    )
+    );
   }
 }
 
@@ -55,8 +57,8 @@ const ContentGrid = ({ children }) => (
   </Grid>
 );
 
-function mapStateToProps ({ authUser }) {
-  return{
+function mapStateToProps({ authUser }) {
+  return {
     authUser
   };
 }
