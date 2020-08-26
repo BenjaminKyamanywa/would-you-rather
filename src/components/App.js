@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react';
 import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux';
 import Login from './Login';
+import Nav from './Nav';
 
 class App extends Component {
   componentDidMount () {
