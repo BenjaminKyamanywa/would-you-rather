@@ -32,7 +32,7 @@ export class Login extends Component {
           />
         </Segment.Group>
         <footer className="footer">
-          <a href='https://www.freepik.com/vectors/people'>People vector created by freepik - www.freepik.com</a>
+          <a href='https://vectorcharacters.net/avatars-2/flat-user-avatars-pack'>People vector created by vector characters - www.vectorcharacters.net</a>
         </footer>
       </Fragment>
     );
