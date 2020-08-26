@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Tab } from 'semantic-ui-react';
-import UserCard from './UserCard';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Tab } from "semantic-ui-react";
+import UserCard from "./UserCard";
 
 export class Home extends Component {
   static propTypes = {
-    userQuestionData: PropTypes.object.isRequired
+    userQuestionData: PropTypes.object.isRequired,
   };
   render() {
     const { userQuestionData } = this.props;
@@ -15,14 +15,14 @@ export class Home extends Component {
   }
 }
 
-const panes = props => {
+const panes = (props) => {
   const { userQuestionData } = props;
   return [
     {
-      menuItem: 'Unanswered',
+      menuItem: "Unanswered",
       render: () => (
         <Tab.Pane>
-          {userQuestionData.answered.map(question => (
+          {userQuestionData.answered.map((question) => (
             <UserCard
               key={question.id}
               question_id={question.id}
@@ -30,13 +30,13 @@ const panes = props => {
             />
           ))}
         </Tab.Pane>
-      )
+      ),
     },
     {
-      menuItem: 'Answered',
+      menuItem: "Answered",
       render: () => (
         <Tab.Pane>
-          {userQuestionData.unanswered.map(question => (
+          {userQuestionData.unanswered.map((question) => (
             <UserCard
               key={question.id}
               question_id={question.id}
@@ -44,25 +44,25 @@ const panes = props => {
             />
           ))}
         </Tab.Pane>
-      )
-    }
+      ),
+    },
   ];
 };
 
 function mapStateToProps({ authUser, users, questions }) {
   const answeredIds = Object.keys(users[authUser].answers);
   const answered = Object.values(questions)
-    .filter(question => !answeredIds.includes(question.id))
+    .filter((question) => !answeredIds.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);
   const unanswered = Object.values(questions)
-    .filter(question => answeredIds.includes(question.id))
+    .filter((question) => answeredIds.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);
 
   return {
     userQuestionData: {
       answered,
-      unanswered
-    }
+      unanswered,
+    },
   };
 }
 

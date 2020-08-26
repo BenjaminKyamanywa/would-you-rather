@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
-import { handleInitialData } from '../actions/shared';
-import { connect } from 'react-redux';
-import Login from './Login';
-import Nav from './Nav';
-import Home from './Home';
-import UserCard from './UserCard';
-import NewPoll from './NewPoll';
-import Leaderboard from './Leaderboard';
-import NoMatch from './NoMatch';
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
+import { handleInitialData } from "../actions/shared";
+import { connect } from "react-redux";
+import Login from "./Login";
+import Nav from "./Nav";
+import Home from "./Home";
+import UserCard from "./UserCard";
+import NewPoll from "./NewPoll";
+import Leaderboard from "./Leaderboard";
+import NoMatch from "./NoMatch";
 
 class App extends Component {
   componentDidMount() {
@@ -59,11 +59,8 @@ const ContentGrid = ({ children }) => (
 
 function mapStateToProps({ authUser }) {
   return {
-    authUser
+    authUser,
   };
 }
 
-export default connect(
-  mapStateToProps,
-  { handleInitialData }
-)(App);
+export default connect(mapStateToProps, { handleInitialData })(App);

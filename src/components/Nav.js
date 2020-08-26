@@ -1,18 +1,18 @@
-import React, { Component, Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from "react";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Menu,
   Responsive,
   Image,
   Grid,
   Button,
-  Container
-} from 'semantic-ui-react';
-import { setAuthUser } from '../actions/authUser';
+  Container,
+} from "semantic-ui-react";
+import { setAuthUser } from "../actions/authUser";
 
 class Nav extends Component {
-  handleLogout = e => {
+  handleLogout = (e) => {
     e.preventDefault();
     this.props.setAuthUser(null);
   };
@@ -136,11 +136,8 @@ class Nav extends Component {
 function mapStateToProps({ users, authUser }) {
   return {
     authUser,
-    users
+    users,
   };
 }
 
-export default connect(
-  mapStateToProps,
-  { setAuthUser }
-)(Nav);
+export default connect(mapStateToProps, { setAuthUser })(Nav);

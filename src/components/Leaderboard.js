@@ -1,20 +1,20 @@
-import React, { Component, Fragment } from 'react';
-import PropType from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from "react";
+import PropType from "prop-types";
+import { connect } from "react-redux";
 import {
   Segment,
   Grid,
   Header,
   Image,
   Label,
-  Divider
-} from 'semantic-ui-react';
+  Divider,
+} from "semantic-ui-react";
 
-const trophyColor = ['yellow', 'grey', 'orange'];
+const trophyColor = ["yellow", "grey", "orange"];
 
 export class Leaderboard extends Component {
   static propType = {
-    leaderboardData: PropType.array.isRequired
+    leaderboardData: PropType.array.isRequired,
   };
   render() {
     const { leaderboardData } = this.props;
@@ -64,19 +64,19 @@ export class Leaderboard extends Component {
 
 function mapStateToProps({ users }) {
   const leaderboardData = Object.values(users)
-    .map(user => ({
+    .map((user) => ({
       id: user.id,
       name: user.name,
       avatarURL: user.avatarURL,
       answerCount: Object.values(user.answers).length,
       questionCount: user.questions.length,
-      total: Object.values(user.answers).length + user.questions.length
+      total: Object.values(user.answers).length + user.questions.length,
     }))
     .sort((a, b) => a.total - b.total)
     .reverse()
     .slice(0, 3);
   return {
-    leaderboardData
+    leaderboardData,
   };
 }
 

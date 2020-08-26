@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { Segment, Header, Grid, Image } from 'semantic-ui-react';
-import PollQuestion from './PollQuestion';
-import PollResult from './PollResult';
-import PollTeaser from './PollTeaser';
-import { colors } from '../utils/helpers';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { Segment, Header, Grid, Image } from "semantic-ui-react";
+import PollQuestion from "./PollQuestion";
+import PollResult from "./PollResult";
+import PollTeaser from "./PollTeaser";
+import { colors } from "../utils/helpers";
 
 const pollTypes = {
-  POLL_TEASER: 'POLL_TEASER',
-  POLL_QUESTION: 'POLL_QUESTION',
-  POLL_RESULT: 'POLL_RESULT'
+  POLL_TEASER: "POLL_TEASER",
+  POLL_QUESTION: "POLL_QUESTION",
+  POLL_RESULT: "POLL_RESULT",
 };
 
-const PollContent = props => {
+const PollContent = (props) => {
   const { pollType, question, unanswered } = props;
 
   switch (pollType) {
@@ -35,7 +35,7 @@ export class UserCard extends Component {
     author: PropTypes.object,
     pollType: PropTypes.string,
     unanswered: PropTypes.bool,
-    question_id: PropTypes.string
+    question_id: PropTypes.string,
   };
   render() {
     const {
@@ -43,7 +43,7 @@ export class UserCard extends Component {
       question,
       pollType,
       badPath,
-      unanswered = null
+      unanswered = null,
     } = this.props;
 
     if (badPath === true) {
@@ -119,7 +119,7 @@ function mapStateToProps(
     badPath,
     question,
     author,
-    pollType
+    pollType,
   };
 }
 

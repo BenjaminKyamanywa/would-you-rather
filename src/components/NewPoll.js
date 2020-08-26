@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Segment,
   Header,
@@ -9,25 +9,25 @@ import {
   Divider,
   Form,
   Dimmer,
-  Loader
-} from 'semantic-ui-react';
-import { handleSaveQuestion } from '../actions/questions';
+  Loader,
+} from "semantic-ui-react";
+import { handleSaveQuestion } from "../actions/questions";
 
 export class NewPoll extends Component {
   static propTypes = {
     authUser: PropTypes.string.isRequired,
-    handleSaveQuestion: PropTypes.func.isRequired
+    handleSaveQuestion: PropTypes.func.isRequired,
   };
   state = {
     validSubmit: false,
     isLoading: false,
-    option1: '',
-    option2: ''
+    option1: "",
+    option2: "",
   };
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const { authUser, handleSaveQuestion } = this.props;
     const { option1, option2 } = this.state;
@@ -35,17 +35,17 @@ export class NewPoll extends Component {
     new Promise((res, rej) => {
       this.setState({ isLoading: true });
       handleSaveQuestion(option1, option2, authUser);
-      setTimeout(() => res('success'), 1000);
+      setTimeout(() => res("success"), 1000);
     }).then(() => {
       this.setState({
-        option1: '',
-        option2: ''
+        option1: "",
+        option2: "",
       });
       this.setState({ validSubmit: true });
     });
   };
   render() {
-    const disabled = this.state.option1 === '' || this.state.option2 === '';
+    const disabled = this.state.option1 === "" || this.state.option2 === "";
 
     if (this.state.validSubmit === true) {
       return <Redirect to="/" />;
@@ -95,11 +95,8 @@ export class NewPoll extends Component {
 
 function mapStateToProps({ authUser }) {
   return {
-    authUser
+    authUser,
   };
 }
 
-export default connect(
-  mapStateToProps,
-  { handleSaveQuestion }
-)(NewPoll);
+export default connect(mapStateToProps, { handleSaveQuestion })(NewPoll);
